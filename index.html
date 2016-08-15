@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+
+	<link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+</head>
+<body>
+
+<p>Press any key to get started!</p>
+
+<div id="game">
+	
+</div>
+
+<script type="text/javascript">
+		
+	var guessWords = ['Vince Young', 'Colt McCoy', 'Ricky Williams', 'Earl Campbell'];
+	var hiddenWord =[];
+
+	for (i = 0; i < guessWords.length; i++){
+		console.log(guessWords[i]);
+
+		var holder = guessWords[i].length;
+		for ( j = 0; j < holder; j++){
+			hiddenWord[j] = '_';
+		}
+		console.log(hiddenWord);
+		console.log(i);
+	}
+</script>
+
+</body>
+</html>
