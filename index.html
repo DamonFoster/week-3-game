@@ -15,19 +15,77 @@
 
 <script type="text/javascript">
 		
-	var guessWords = ['Vince Young', 'Colt McCoy', 'Ricky Williams', 'Earl Campbell'];
+	var guessWords = ['vince young', 'colt mccoy', 'ricky williams', 'earl campbell'];
 	var hiddenWord =[];
+	var dashW = [];
+	var userGuess = ' ';
+	var finalW = '';
+
 
 	for (i = 0; i < guessWords.length; i++){
-		console.log(guessWords[i]);
+				//console.log("guess word: " + guessWords[i]);
+				//console.log(guessWords[i].length);
+				hiddenWord = [];
 
-		var holder = guessWords[i].length;
-		for ( j = 0; j < holder; j++){
-			hiddenWord[j] = '_';
+				for ( j = 0; j < guessWords[i].length; j++){
+					hiddenWord[j] = '_';
+				}
+
+				dashW[i] = hiddenWord;
+
+				var chosenWord = guessWords[i];
+				//console.log(chosenWord);
+
+				var count = 0;
+				
+
+				//console.log(j);
+				//console.log("hide: " + hiddenWord);
+				//console.log("dashW: " + dashW[i]);
+				//console.log(hiddenWord.length);
+				//console.log(chosenWord.length);
+
+
+				
+
+			//document.onkeyup = function(event){
+			//var userGuess = String.fromCharCode(event.keyCode).toLowerCase();
+			//console.log(userGuess);
+
+			//for (i=0; i < guessWords[i].length; i++)
+
+			//for( k = 0; k = guessWords[i].length; k++){
+			//		if (userGuess === chosenWord[k]){
+			//			hiddenWord[k] = userGuess;
+			//		}
+			//	}
 		}
-		console.log(hiddenWord);
-		console.log(i);
-	}
+
+		document.onkeyup = function(event){
+					userGuess = String.fromCharCode(event.keyCode).toLowerCase();
+					console.log("user guess: " + userGuess);
+
+					for (i = 0; i < 4; i++){
+						for( j = 0; j < dashW[i].length; j++){
+							var switcher = [];
+							switcher = dashW[i];
+							finalW = finalW + switcher[j];
+						}
+						console.log(switcher);
+						console.log(finalW);
+						var holder = dashW[i];
+
+						for( k = 0; k < dashW[i].length; k++){
+							if( userGuess === holder[k]){
+								finalW.charAt(k) = userGuess;
+							}
+							console.log(finalW);
+						}
+						finalW = '';
+					}
+				}
+					
+	
 </script>
 
 </body>
