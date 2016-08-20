@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Rock Paper Scissors Part 1</title>
+</head>
+<body>
+
+<p><h1>The Psychic Game!</h1><p>
+<p>Guess what letter I'm thinking of</p>
+
+<div id="game">
+
+</div>
+
+<script type="text/javascript">
+
+var wins = 0;
+var losses = 0;
+var left = 10;
+var guesses = '';
+var psychicWord = '';
+
+// Create an array that lists out all of the options
+var alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
+
+//var computerGuess = Math.floor(Math.random()*26);
+psychicWord = alphabet[Math.floor(Math.random()*26)];
+	console.log(psychicWord);
+
+//document.write("Press r, p, or s to start playing!<br><br><br>");
+//document.write("Wins: " + wins);
+//document.write("<br>Losses: " + losses);
+//document.write("<br>Ties: " + ties);
+
+// Captures Key Clicks
+document.onkeyup = function(event) {
+
+	// Determines which exact key was selected. Make it lowercase
+	var userGuess = String.fromCharCode(event.keyCode).toLowerCase();
+
+	// Alerts with user guess
+	//console.log(userGuess);
+
+	// Create code to randomly choose one of the three options (Computer) 
+	
+
+	// Alerts with Computer guess
+	//console.log(computerGuess);
+
+	if (userGuess == psychicWord){
+		alert('Congrats! You must be telepathic! Please play again!');
+		wins++;
+		psychicWord = alphabet[Math.floor(Math.random()*26)];
+		console.log('new letter: ' + psychicWord);
+		left = 10;
+		guesses = '';
+	}else{
+		left--;
+		guesses = guesses + " " + userGuess;
+		console.log('letter: ' + psychicWord);
+		console.log('guesses left: ' + left);
+		console.log('guesses so far: ' + guesses);
+	}
+
+	if( left === 0){
+		alert('You lose :(  The letter was: ' + psychicWord + '. Please play again!')
+		psychicWord = alphabet[Math.floor(Math.random()*26)];
+		losses++;
+		left = 10;
+		guesses = '';
+	}
+
+	document.querySelector('#game').innerHTML = 'Wins: ' + wins + '<br> Losses: ' + losses + '<br> Guesses Left: ' + left + '<br> Your Guesses So Far: ' + guesses;
+
+}
+
+</script>
+</body>
+</html>
