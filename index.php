@@ -1,1 +1,1 @@
-<?php include_once("physic.html"); ?>
+<?php include_once("psychic.html"); ?>
